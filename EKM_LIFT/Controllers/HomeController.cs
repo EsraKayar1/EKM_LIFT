@@ -36,6 +36,7 @@ namespace EKM_LIFT.Controllers
         }
         public IActionResult service()
         {
+            string deneme = "feyyaz";
             return View();
         }
 
