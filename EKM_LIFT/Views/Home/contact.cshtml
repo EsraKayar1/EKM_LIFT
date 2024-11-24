@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "~/Home/contact.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+
+</head>
+
+<body class="sub_page">
+
+   
+
+
+    <!-- contact section -->
+    <section class="contact_section layout_padding">
+        <div class="container-fluid">
+            <div class="col-lg-4 col-md-5 offset-md-1">
+                <div class="heading_container">
+                    <h2>
+                        Bize Ulaşın
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-5 offset-md-1">
+                    <div class="form_container">
+                        <form id="contact-form" action="../send-mail.php" method="post">
+                            <div>
+                                <input type="text" name="adiniz" placeholder="Adınız" required />
+                            </div>
+                            <div>
+                                <input type="text" name="telefon" placeholder="Telefon Numaranız" />
+                            </div>
+                            <div>
+                                <input type="email" name="mail" placeholder="Mail" required />
+                            </div>
+                            <div>
+                                <input type="text" name="mesaj" class="message-box" placeholder="Mesajınız" required />
+                            </div>
+                            <div class="btn_box">
+                                <button type="submit">
+                                    GÖNDER
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6 px-0">
+                    <div class="map_container">
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d12054.503611107495!2d29.279967105738233!3d40.94586541013615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x14cad09f01967a71%3A0xbde05c65e79d8c15!2sAk%C5%9Femsettin%2C%20G%C3%BClsan%2C%20Fatih%20Blv.%20No%3A578%2C%2034925%20Sultanbeyli%2F%C4%B0stanbul!3m2!1d40.9455233!2d29.2990554!5e0!3m2!1str!2str!4v1732190728108!5m2!1str!2str"
+                                    width="99%"
+                                    height="430"
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- end contact section -->
+  
+
+</body>
+
+</html>
