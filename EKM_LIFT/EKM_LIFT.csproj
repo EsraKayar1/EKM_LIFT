@@ -7,4 +7,9 @@
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\css\style.css.map" />
+    <Content Remove="wwwroot\css\style.scss" />
+  </ItemGroup>
+
 </Project>

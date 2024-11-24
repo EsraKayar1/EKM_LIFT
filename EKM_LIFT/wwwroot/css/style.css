@@ -551,8 +551,8 @@ a:focus {
 
 .service_section .box .img-box img {
   height: 100%;
-  -webkit-filter: brightness(0);
-          filter: brightness(0);
+/*  -webkit-filter: brightness(100);
+          filter: brightness(100);*/
   -webkit-transition: all .3s;
   transition: all .3s;
 }
