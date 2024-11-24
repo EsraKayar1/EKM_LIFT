@@ -8,7 +8,7 @@
     <link href="~/css/style.css" rel="stylesheet" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>www.ekmLift.com</title>
+    <title>www.ekmlift.com</title>
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -72,21 +72,22 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li class="nav-item">
+                                <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")">
                                     <a class="nav-link" href="~/Home/Index">ANASAYFA</a>
                                 </li>
-                                <li class="nav-item ">
+                                <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "service" ? "active" : "")">
                                     <a class="nav-link" href="~/Home/service">SERVİSLER</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="~/Home/about"> HAKKIMIZDA</a>
+                                <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "about" ? "active" : "")">
+                                    <a class="nav-link" href="~/Home/about">HAKKIMIZDA</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "project" ? "active" : "")">
                                     <a class="nav-link" href="~/Home/project">PROJELER</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "contact" ? "active" : "")">
                                     <a class="nav-link" href="~/Home/contact">İLETİŞİM</a>
                                 </li>
+
                             </ul>
                             <div class="quote_btn-container">
                                 <a href="~/Home/contact.cshtml" class="quote_btn">
@@ -140,7 +141,7 @@
                                             Hızlı Bağlantı
                                         </h4>
                                         <div class="info_links_menu">
-                                            <a class="" href="~/Home/Index">Anasayfa <span class="sr-only">(current)</span></a>
+                                            <a class="" href="~/Home/Index">Anasayfa</a>
                                             <a class="" href="~/Home/service">Servisler</a>
                                             <a class="" href="~/Home/about"> Hakkımızda</a>
                                             <a class="" href="~/Home/project">Projeler</a>
@@ -208,31 +209,4 @@
     </div>
 </body>
 </html>
-<script>
 
-        document.addEventListener("DOMContentLoaded", function () {
-        // Mevcut URL'yi alın
-        const currentUrl = window.location.pathname.toLowerCase(); // Küçük harfe çevirerek kontrol yap
-        console.log("Current URL:", currentUrl);
-
-        // Tüm menü bağlantılarını seç
-        const menuLinks = document.querySelectorAll(".navbar-nav .nav-link");
-
-        // Her bağlantıyı kontrol et
-        menuLinks.forEach(link => {
-            // Href değerini normalize et ve karşılaştır
-            const linkHref = link.getAttribute("href").replace("~/", "/").toLowerCase(); // '~/' ön ekini kaldır
-            console.log("Link Href:", linkHref);
-
-            if (linkHref === currentUrl) {
-                // Eğer URL eşleşiyorsa 'active' sınıfı ekle
-                link.classList.add("active");
-            } else {
-                // Eğer eşleşmiyorsa, aktif sınıfı kaldır (isteğe bağlı)
-                link.classList.remove("active");
-            }
-        });
-    });
-
-
-</script>
