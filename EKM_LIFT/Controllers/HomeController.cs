@@ -1,6 +1,9 @@
 using EKM_LIFT.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
+using System.Globalization;
+using System.Xml.Linq;
 
 namespace EKM_LIFT.Controllers
 {
@@ -29,7 +32,7 @@ namespace EKM_LIFT.Controllers
         public IActionResult contact()
         {
             return View();
-        } 
+        }
         public IActionResult project()
         {
             return View();
@@ -37,6 +40,19 @@ namespace EKM_LIFT.Controllers
         public IActionResult service()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult SendEmail(string adiniz, string telefon, string mail, string mesaj)
+        {
+            // Örnek bir doðrulama
+            if (string.IsNullOrEmpty(adiniz))
+            {
+                return Json(new { success = false, message = "Geçersiz veri gönderildi." });
+            }
+
+            // Baþarýlý yanýt
+            return Json(new { success = true, message = "Veri baþarýyla kaydedildi!" });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
