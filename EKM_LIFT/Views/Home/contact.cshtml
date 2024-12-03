@@ -4,6 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" href="~/css/style.css">
+        <link rel="stylesheet" href="~/css/bootstrap.css">
+   
     <title>Bize Ulaşın</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -20,10 +27,14 @@
                     <h2>Bize Ulaşın</h2>
                 </div>
             </div>
+            @if (!string.IsNullOrEmpty(ViewBag.Uyari))
+            {
+                <div class="alert alert-success">@ViewBag.Uyari</div>
+            }
             <div class="row">
                 <div class="col-lg-4 col-md-5 offset-md-1">
                     <div class="form_container">
-                        <form id="dataForm">
+                        <form id="dataForm" action="/Home/contact/" method="post">
                             <div>
                                 <input type="text" id="adiniz" name="adiniz" placeholder="Adınız" required />
                             </div>
@@ -37,21 +48,16 @@
                                 <input type="text" id="mesaj" name="mesaj" class="message-box" placeholder="Mesajınız" required />
                             </div>
                             <div class="btn_box">
-                                <button id="submitButton" type="button">GÖNDER</button>
+                                <button type="submit">GÖNDER</button>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-6 px-0">
+                <div class="col-lg-7 col-md-6 px-1">
                     <div class="map_container">
                         <div class="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d12054.503611107495!2d29.279967105738233!3d40.94586541013615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x14cad09f01967a71%3A0xbde05c65e79d8c15!2sAk%C5%9Femsettin%2C%20G%C3%BClsan%2C%20Fatih%20Blv.%20No%3A578%2C%2034925%20Sultanbeyli%2F%C4%B0stanbul!3m2!1d40.9455233!2d29.2990554!5e0!3m2!1str!2str!4v1732190728108!5m2!1str!2str"
-                                    width="99%"
-                                    height="430"
-                                    style="border:0;"
-                                    allowfullscreen=""
-                                    loading="lazy">
-                            </iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.595369148968!2d29.18783531162803!3d40.99034032040973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf9f38ec9d69%3A0xe4873966c5acdb20!2sEsenkent%2C%20Hoca%20Nasrettin%20Cd.%20No%3A27%2C%2034775%20%C3%9Cmraniye%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1733170028523!5m2!1str!2str" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -59,46 +65,6 @@
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Butona tıklama olayını dinle
-            $("#submitButton").click(function (event) {
-                // Formun varsayılan gönderimini engelle
-                event.preventDefault();
-
-                // Form verilerini oku
-                const adiniz = $("#adiniz").val();
-                const telefon = $("#telefon").val();
-                const mail = $("#mail").val();
-                const mesaj = $("#mesaj").val();
-                const token = $("input[name='__RequestVerificationToken']").val(); // CSRF token'i al
-                console.log(adiniz);
-                // AJAX isteği gönder
-                $.ajax({
-                    url: "/Home/SendEmail",
-                    type: "POST",
-                    contentType: "application/json",
-                    headers: { "RequestVerificationToken": token }, // CSRF token'i ekle
-                    // Gönderilen veriyi kontrol edin
-                    data: JSON.stringify({
-                        adiniz: adiniz,
-                        telefon: telefon,
-                        mail: mail,
-                        mesaj: mesaj
-                    }),
-                    success: function (response) {
-                        if (response.success) {
-                            $("#resultMessage").text(response.message).css("color", "green");
-                        } else {
-                            $("#resultMessage").text(response.message).css("color", "red");
-                        }
-                    },
-                    error: function () {
-                        $("#resultMessage").text("Bir hata oluştu.").css("color", "red");
-                    }
-                });
-            });
-        });
-    </script>
+  
 </body>
 </html>
