@@ -399,22 +399,24 @@ a:focus {
 /*end header section*/
 /* slider section */
 .slider_section {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-image: url(../images/slider-bg.jpg);
-  background-size: cover;
-}
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-image: url(../images/slider-bg.jpg);
+    background-size: cover;
+    width: 100%; /* Gerekirse daha büyük bir deðer kullanabilirsiniz */
+    height: 480px;
 
+}
 .slider_section .dot_design {
   position: absolute;
-  width: 450px;
+  width: 450px;       
   right: 0;
   bottom: 0;
   -webkit-transform: translateY(50%);
@@ -445,7 +447,7 @@ a:focus {
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 0;
-  color: #ffffff;
+  color: darkred;
 }
 
 .slider_section .detail-box p {
