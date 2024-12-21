@@ -43,7 +43,7 @@ namespace EKM_LIFT.Controllers
         {
             return View();
         }
-       
+
 
         [HttpPost]
         public IActionResult contact(string adiniz, string telefon, string mail, string mesaj)
@@ -53,10 +53,10 @@ namespace EKM_LIFT.Controllers
             {
                 try
                 {
-                    var fromAddress = new MailAddress("esrakayar1313@gmail.com", "Esra Kayar");
-                    var toAddress = new MailAddress("esrakayar1313@gmail.com", "Recipient");
-                    const string fromPassword = "bljs abuo uxzf ewdu";
-                    const string subject = "Yeni Mesaj";
+                    var fromAddress = new MailAddress("ekmhidroliklift@gmail.com", "EkmHidrolikLift");
+                    var toAddress = new MailAddress("ekmhidroliklift@gmail.com", "Recipient");
+                    string fromPassword = "hsxo ejqp kkvy cvni";
+                    string subject = "EKM LIFT WebSite Mesaj";
                     string body = $"Ad: {adiniz}\nTelefon: {telefon}\nMail: {mail}\nMesaj: {mesaj}";
 
                     var smtp = new SmtpClient
@@ -66,7 +66,7 @@ namespace EKM_LIFT.Controllers
                         EnableSsl = true,
                         DeliveryMethod = SmtpDeliveryMethod.Network,
                         UseDefaultCredentials = false,
-                        Credentials = new NetworkCredential("esrakayar1313@gmail.com", "bljs abuo uxzf ewdu")
+                        Credentials = new NetworkCredential("ekmhidroliklift@gmail.com", "hsxo ejqp kkvy cvni")
                     };
 
                     using (var message = new MailMessage(fromAddress, toAddress)
