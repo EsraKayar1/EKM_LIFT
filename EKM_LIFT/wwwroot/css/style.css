@@ -724,15 +724,13 @@ a:focus {
   color: #f07b26;
   font-size: 20px;
 }
-
 .project_section .box .detail-box {
-  padding: 15px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  background-color: #f07b26;
-  color: #ffffff;
-  visibility: hidden;
-  opacity: 0;
+    padding: 15px;
+    background-color: #f07b26;
+    color: #ffffff;
+    visibility: visible;  /*Görünürlüðü her durumda açýk yap*/ 
+    opacity: 1;  /*Opaklýk tamamen görünür */
+    text-align: center; /* Yazýyý ortala */
 }
 
 .project_section .box .detail-box h5 {
@@ -1239,4 +1237,34 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
-/*# sourceMappingURL=style.css.map */
+
+.custom_nav-container img {
+    max-width: 100%; /* Görüntünün dýþarý taþmasýný engeller */
+    height: auto; /* Oranlarý korur */
+  
+}
+
+@media (max-width: 2000px) { /* Tablet ve daha küçük ekranlar için */
+    .custom_nav-container img {
+        border-radius: 50%; /* Yuvarlak yapmak için */
+        object-fit: cover; /* Ýçeriðin düzgün görünmesi için */
+        height: 200px
+    }
+}
+
+@media (max-width: 768px) { /* Tablet ve daha küçük ekranlar için */
+    .custom_nav-container img {
+        width: 250px; /* Daha küçük boyut */
+        border-radius: 50%; /* Yuvarlak yapmak için */
+        object-fit: cover; /* Ýçeriðin düzgün görünmesi için */
+        height: 150px; /* Yükseklik ayarla */
+    }
+}
+
+@media (max-width: 480px) { /* Mobil cihazlar için */
+    .custom_nav-container img {
+        width: 150px; /* Daha da küçük boyut */
+        height: 80px; /* Yükseklik ayarla */
+    }
+}
+ 
